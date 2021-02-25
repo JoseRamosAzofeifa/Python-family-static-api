@@ -60,10 +60,10 @@ def delete_one_member(member_id):
     
     member_delete = jackson_family.delete_member(member_id)
     
-    if member_delete != id:
-         return jsonify("Id no encontrado"),400
-    
-    return jsonify(member_one), 200
+    if member_delete == None:
+         return jsonify("Id no encontrado"),404
+    response_body= {"done": True}
+    return jsonify(response_body), 200
 
 
 
